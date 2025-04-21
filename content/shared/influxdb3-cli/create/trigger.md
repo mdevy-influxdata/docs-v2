@@ -41,4 +41,50 @@ You can use the following environment variables to set command options:
 
 ## Examples
 
+In the examples below, replace the following:
 
+- {{% code-placeholder-key %}}`DATABASE_NAME`{{% /code-placeholder-key %}}: Database name
+- {{% code-placeholder-key %}}`TABLE_NAME`{{% /code-placeholder-key %}}: Name of the table to trigger on
+- {{% code-placeholder-key %}}`TRIGGER_NAME`{{% /code-placeholder-key %}}: Name to assign to the new trigger
+
+{{% code-placeholders "(DATABASE|TABLE|TRIGGER)_NAME" %}}
+
+### Create a trigger for a specific table
+
+This creates a trigger that activates when data is written to a specific table:
+
+<!--pytest.mark.skip-->
+
+```bash
+influxdb3 create trigger \
+  --database DATABASE_NAME \
+  --trigger-spec "table:TABLE_NAME" \
+  TRIGGER_NAME
+```
+
+### Create a trigger for all tables
+
+This creates a trigger that activates when data is written to any table in the database:
+
+<!--pytest.mark.skip-->
+
+```bash
+influxdb3 create trigger \
+  --database DATABASE_NAME \
+  --trigger-spec "all_tables" \
+  TRIGGER_NAME 
+```
+### Create a disabled trigger
+
+This creates a trigger in a disabled state. You can enable it later when needed:
+
+<!--pytest.mark.skip-->
+
+```bash
+influxdb3 create trigger \
+  --database DATABASE_NAME \
+  --trigger-spec "table:TABLE_NAME" \
+  --disabled \
+  TRIGGER_NAME
+```
+{{% /code-placeholders %}}
