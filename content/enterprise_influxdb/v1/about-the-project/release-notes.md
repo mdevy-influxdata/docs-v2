@@ -1,5 +1,5 @@
 ---
-title: InfluxDB Enterprise 1.11 release notes
+title: InfluxDB Enterprise 1.12 release notes
 description: >
   Important changes and what's new in each version InfluxDB Enterprise.
 menu:
